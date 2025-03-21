@@ -1,0 +1,9 @@
+Lỗi trong đoạn mã sau là do kiểu dữ liệu không tương thích:
+
+char c = 'C';  
+double *p = &c;  
+
+Biến c có kiểu char
+Con trỏ p có kiểu double*, tức là nó trỏ đến vùng nhớ kiểu double
+
+error: cannot convert ‘char*’ to ‘double*’ in initialization

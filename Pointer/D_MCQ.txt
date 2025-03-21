@@ -1,0 +1,80 @@
+1. Câu lệnh nào sau đây thực hiện gán giá trị của n cho con trỏ *p
+int n = 5; int *p;
+i.	p = n;
+ii.	p = &n;
+iii.	*p = n;
+iv.	*p = &n;
+Đáp án: ii.	p = &n;
+        iii.	*p = n;
+
+
+2. Câu lệnh nào sau đây thực hiện chỉ con trỏ *p1 vào vị trí con trỏ *p2 đang chỉ
+i.	    *p1 = p2;
+ii.	    p1 = *p2;
+iii.    p1 = p2;
+iv.	    *p1 = *p2
+Đáp án: iii.	p1 = p2;
+
+
+3. Đối với phép toán con trỏ, phát biểu nào sau đây có ý nghĩa lập trình 
+i.	Phép nhân trên con trỏ kiểu int
+ii.	Phép cộng trừ trên con trỏ kiểu int
+iii.	Phép gán với con trỏ kiểu int
+iv.	Tất cả các phép toán với con trỏ kiểu int
+Đáp án: ii.	Phép cộng trừ trên con trỏ kiểu int 
+        Có thể cộng hoặc trừ một số nguyên với con trỏ để di chuyển đến phần tử tiếp theo hoặc trước đó trong mảng.
+        iii.	Phép gán với con trỏ kiểu int
+        Có thể gán một địa chỉ hợp lệ cho một con trỏ.
+
+
+4. Phát biểu nào sau đây chính xác 
+i.	Phép cộng trừ với các con trỏ ở mảng khác nhau 
+ii.	Phép cộng trừ với các con trỏ ở cùng mảng
+iii.	Tất cả các phép toán với các con trỏ ở cùng mảng (trong giới hạn mảng)
+iv.	Tất cả các phát biểu trên
+Đáp án: ii.	Phép cộng trừ với các con trỏ ở cùng mảng
+        iii.	Tất cả các phép toán với các con trỏ ở cùng mảng (trong giới hạn mảng)
+        Các phép toán hợp lệ bao gồm so sánh, trừ hai con trỏ, cộng/trừ con trỏ với số nguyên, miễn là con trỏ không vượt quá giới hạn của mảng.
+
+
+5. Phát biểu nào sau đây đúng với con trỏ tới hàm
+i.	    Có thể được truyền vào trong hàm
+ii.	    Có thể được trả về bới hàm
+iii.	Có thể được lưu trong mảng
+iv.	    Tất cả các phát biểu trên
+Đáp án: iv.	    Tất cả các phát biểu trên
+
+
+6. Khai báo hàm nào sau đây không đúng
+i.	    void bubble(int [], const int, bool (*) (int, int));
+✅ Đúng. Đây là cách hợp lệ để khai báo một con trỏ hàm nhận hai int và trả về bool.
+ii.	    void bubble(int [], const int, bool * (int, int));
+❌ Sai. Cú pháp này không hợp lệ vì nó khai báo một hàm trả về bool * thay vì một con trỏ hàm.
+iii.	void bubble(int [], const int, (bool *) (int, int));
+❌ Sai. Dấu ngoặc (bool *) không có ý nghĩa trong khai báo con trỏ hàm và gây lỗi cú pháp.
+iv.	    void bubble(int [], const int, bool (* (int, int)));
+❌ Sai. Cú pháp có lỗi vì (* (int, int)) không hợp lệ. Cần phải viết (*ptr)(int, int) thay vì (* (int, int)).
+
+
+
+7. Kết quả đoạn mã sau là gì:
+	int a[6] = {1, 2, 3};
+	int *b; b = &a[0];
+	for (int i=0; i<3; i++)
+	    switch (i%3) {
+	        case 0: *(b+i) = a[i]; break;
+	        case 1: *(b++) = a[i]; break;
+	        case 2: *(++b) = a[i]++; break;
+	    }
+	for (int i=0; i<3; i++) cout << a[i] << " ";
+i.	    0 2 3
+ii.	    2 2 0
+iii.	2 2 3
+iv.	    3 0 3 
+iii. 2 2 3
+
+| i | i % 3 | Câu lệnh thực thi | Giá trị b sau lệnh |                         Mảng a sau lệnh                         |
+|---|-------|-------------------|--------------------|-----------------------------------------------------------------|    
+| 0 | 0     | *(b + i) = a[i];  | b = &a[0];         | {1, 2, 3, ?, ?, ?} (không đổi)                                  |
+| 1 | 1     | *(b++) = a[i];    | b = &a[1];         | {2, 2, 3, ?, ?, ?} (gán 2 vào a[0])                             |
+| 2 | 2     | *(++b) = a[i]++;  | b = &a[2];         | {2, 2, 3, ?, ?, ?} (a[2] được gán giá trị 3, sau đó tăng lên 4) |
