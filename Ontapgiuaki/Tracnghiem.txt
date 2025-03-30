@@ -1,0 +1,106 @@
+I. Trắc nghiệm
+Câu 1
+	int a = 5; 
+	int x = 2;
+	a += (x > 0 ? 1: 0);
+	// (x > 0) -> a = a + 1 
+	// (x < 0) -> a = a + 0
+	cout << a;
+
+x = 2 -> (x > 0) -> a = 5 + 1 = 6 -> D
+
+Câu 2
+- Cách 1: Giải bằng CT truy hồi
+Để chuyển n đĩa từ cột A -> C ta cần bao nhiêu lần chuyển giữa các cột A, B, C (BÀI TOÁN THÁP HÀ NỘI)
+Ta có:
++ Base case: 1 đĩa -> 1 lần chuyển -> T(1)=1
++ Khi n > 0, để di chuyển n đĩa:
+   	Di chuyển n - 1 đĩa nhỏ (tức là đĩa từ 1 đến n - 1) từ A sang B.
+	-> Số bước cần: T(n - 1)
+
+	Di chuyển đĩa thứ n (đĩa lớn nhất) từ A sang C.
+	-> Số bước cần: 1
+
+	Di chuyển lại n - 1 đĩa nhỏ từ B sang C.
+	-> Số bước cần: T(n - 1)
+=> ta được 1 công thức truy hồi T(n)= 2*T(n-1) + 1, với T(1) = 1
+=> T(2) = 2*T(1) + 1 = 3 => T(3) = 2*T(2) + 1 = 7
+Với n = 3 -> ta cần 7 lần di chuyển cách đĩa để hoàn thành bài toán.
+
+- Cách 2: Giải bằng code  
+#include <iostream>
+
+using namespace std;
+
+int count = 0;
+
+void towerOfHanoi(int n, char from_rod, char to_rod, char aux_rod) {
+    if (n == 1) {
+        cout << "Move disk 1 from rod " << from_rod << " to rod " << to_rod << endl;
+        count++;
+        return;
+    }
+    towerOfHanoi(n - 1, from_rod, aux_rod, to_rod);
+    cout << "Move disk " << n << " from rod " << from_rod << " to rod " << to_rod << endl;
+    count++;
+    towerOfHanoi(n - 1, aux_rod, to_rod, from_rod);
+}
+
+int main() {
+    int n;
+    cin >> n;
+    towerOfHanoi(n, 'A', 'C', 'B');
+    cout << count << endl;
+    return 0;
+}
+-> C
+
+Câu 3 
+Cho hàm sau:
+void printArray(int arr[], int size) {
+for (int i = 0; i < size; i++)
+cout << arr[i] << " ";
+}
+Khi gọi printArray(arr, 5) với arr là {1, 2, 3, 4, 5} 
+Output 1 2 3 4 5 -> A
+
+Câu 4 
+arr = {5, 1, 4, 2, 8}, sắp xếp bằng BubbleSort 
+sau lần đầu, arr = {1, 4, 2, 5, 8} -> A
+
+Câu 5
+x = -1;
+while (condition) {
+// code
+}
+vòng lặp chạy vô hạn <=> condition = true (vì đây là hằng số đúng, không phụ thuộc x)
+
+Câu 6 factorial(4) = 24 -> C
+
+Câu 7 Hàm tìm kiếm nhị phân trả lại vị trí của key trong mảng hoặc trả về -1
+Intput arr = {1, 3, 5, 7, 9} and key = 2
+Output -1 -> C
+
+Câu 8 
+void changeValue(int &a){
+	x = 10
+}
+
+Intput a = 5 -> Output a = 10 -> B
+
+Câu 9
+void incrementByValue(int x) {
+x++;
+}
+void incrementByReference(int &x) {
+x++;
+}
+Có:
+incrementByValue(a) 
+incrementByReference(b) 
+a = b = 5
+Output: a = 5 vì chỉ chuyền giá trị 5 vào hàm chứ không phải truyển địa chỉ của biến a vào hàm
+	b = 6 vì đã truyền cả địa chỉ ô của biến b vào hàm
+-> C
+
+Câu 10 fibonacci(6) = 8 -> B

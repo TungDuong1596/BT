@@ -1,0 +1,11 @@
+Tiêu chí                | Bubble Sort                                                             | Selection Sort                                                                 | Insertion Sort
+------------------------|-------------------------------------------------------------------------|--------------------------------------------------------------------------------|------------------------------------------
+Nguyên lý hoạt động     | So sánh và hoán đổi các phần tử liên tiếp cho đến khi mảng được sắp xếp | Tìm phần tử nhỏ nhất (hoặc lớn nhất) trong danh sách và đưa nó vào đúng vị trí | Duyệt qua từng phần tử và chèn nó vào vị trí thích hợp trong danh sách con đã sắp xếp
+Độ phức tạp trung bình  | O(n^2)                                                                  | O(n^2)                                                                         | O(n^2)
+Độ phức tạp tốt nhất    | O(n) (khi mảng đã sắp xếp)                                              | O(n^2)                                                                         | O(n) (khi mảng đã sắp xếp)
+Độ phức tạp xấu nhất    | O(n^2)                                                                  | O(n^2)                                                                         | O(n^2)
+Bộ nhớ bổ sung          | Không cần bộ nhớ phụ O(1)                                               | Không cần bộ nhớ phụ O(1)                                                      | Không cần bộ nhớ phụ O(1)
+Tính ổn định            | Ổn định (giữ nguyên thứ tự các phần tử bằng nhau) | Không ổn định (có thể thay đổi thứ tự các phần tử bằng nhau)                                         | Ổn định
+Hiệu suất thực tế       | Chậm, ít được sử dụng                                                   | Tốt hơn Bubble Sort, nhưng vẫn chậm                                            | Hiệu quả hơn khi dữ liệu gần như đã sắp xếp
+Ưu điểm                 | Dễ cài đặt, dễ hiểu                                                     | Ít số lần hoán đổi hơn Bubble Sort                                             | Tốt khi dữ liệu gần như đã sắp xếp, hiệu quả hơn Bubble Sort và Selection Sort
+Nhược điểm              | Hiệu suất kém khi dữ liệu lớn                                           | Chậm hơn Insertion Sort khi dữ liệu gần như đã sắp xếp                         | Chậm khi dữ liệu ngẫu nhiên
